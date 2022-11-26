@@ -2330,6 +2330,39 @@
 					</Points>
 				</Connector>
 			</Connectors>
+			<AnalysisData>
+    			<HistogramData>
+					<Id>1669492092664</Id>
+					<Name><![CDATA[data]]></Name>
+					<X>810</X><Y>790</Y>
+					<Label><X>15</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<AutoUpdate>true</AutoUpdate>
+					<OccurrenceAtTime>true</OccurrenceAtTime>
+					<OccurrenceDate>1669536000000</OccurrenceDate>
+					<OccurrenceTime Class="CodeUnitValue">
+						<Code><![CDATA[0]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</OccurrenceTime>
+					<RecurrenceCode Class="CodeUnitValue">
+						<Code><![CDATA[1]]></Code>
+						<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
+					</RecurrenceCode>
+					<Value><![CDATA[]]></Value>
+					<NumberOfIntervals>10</NumberOfIntervals>
+					<MinMaxAutodetect>true</MinMaxAutodetect>
+					<RangeMinExpression><![CDATA[0]]></RangeMinExpression>
+					<RangeMaxExpression><![CDATA[1]]></RangeMaxExpression>
+					<InitialIntervalSize><![CDATA[0.1]]></InitialIntervalSize>
+					<CalculateCDF>true</CalculateCDF>
+					<CalculatePercentiles>false</CalculatePercentiles>
+					<LowPercent>10</LowPercent>
+					<HighPercent>10</HighPercent>
+					<Title><![CDATA[]]></Title>
+				</HistogramData>
+			</AnalysisData>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1667912652595</Id>
@@ -2493,6 +2526,9 @@
 										<Parameter>
 											<Name><![CDATA[serv]]></Name>
 										</Parameter>
+										<Parameter>
+											<Name><![CDATA[origTime]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -2575,7 +2611,8 @@
 							<Name><![CDATA[onExit]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[agent.serv = uniform_discr(1, 5);
-agent.ping = uniform_discr(1, 120);]]></Code>
+agent.ping = uniform_discr(1, 120);
+agent.origTime = time();]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2682,6 +2719,9 @@ agent.ping = uniform_discr(1, 120);]]></Code>
 										</Parameter>
 										<Parameter>
 											<Name><![CDATA[serv]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[origTime]]></Name>
 										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
@@ -3154,6 +3194,9 @@ agent.ping = uniform_discr(1, 120);]]></Code>
 										<Parameter>
 											<Name><![CDATA[serv]]></Name>
 										</Parameter>
+										<Parameter>
+											<Name><![CDATA[origTime]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -3381,6 +3424,9 @@ agent.ping = uniform_discr(1, 120);]]></Code>
 										</Parameter>
 										<Parameter>
 											<Name><![CDATA[serv]]></Name>
+										</Parameter>
+										<Parameter>
+											<Name><![CDATA[origTime]]></Name>
 										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
@@ -3610,6 +3656,9 @@ agent.ping = uniform_discr(1, 120);]]></Code>
 										<Parameter>
 											<Name><![CDATA[serv]]></Name>
 										</Parameter>
+										<Parameter>
+											<Name><![CDATA[origTime]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -3838,6 +3887,9 @@ agent.ping = uniform_discr(1, 120);]]></Code>
 										<Parameter>
 											<Name><![CDATA[serv]]></Name>
 										</Parameter>
+										<Parameter>
+											<Name><![CDATA[origTime]]></Name>
+										</Parameter>
 									</Parameters>
 									<ReplicationFlag>true</ReplicationFlag>
 									<Replication Class="CodeValue">
@@ -4059,7 +4111,8 @@ agent.ping = uniform_discr(1, 120);]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[count_rus=0;
-hold.unblock();]]></Code>
+hold.unblock();
+data.add((time() - agent.origTime) / 60 / 60);]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7198,6 +7251,31 @@ hold4.unblock();]]></Code>
 					<Z>0</Z>
 					<LevelVisibility>DIM_NON_CURRENT</LevelVisibility>
 
+			<Presentation>
+				<Control Type="Slider">
+				 	<EmbeddedIcon>false</EmbeddedIcon>				
+					<Id>1669492108415</Id>
+					<Name><![CDATA[slider]]></Name>
+					<X>100</X><Y>840</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+					<BasicProperties Width="100" Height="30">
+                        <EmbeddedIcon>false</EmbeddedIcon>	
+						<Enabled>true</Enabled>
+					</BasicProperties>
+					<ExtendedProperties>
+						<DefaultValueCode><![CDATA[0]]></DefaultValueCode>
+						<Orientation>HORIZONTAL</Orientation>
+						<MinValue><![CDATA[0.01]]></MinValue>
+						<MaxValue><![CDATA[1]]></MaxValue>
+						<LinkTo>true</LinkTo>
+						<Link>a</Link>
+					</ExtendedProperties>
+				</Control>
+			</Presentation>
 
 				</Level>
 			</Presentation>
@@ -7328,7 +7406,7 @@ hold4.unblock();]]></Code>
 				<Variable Class="Parameter">
 					<Id>1668084803778</Id>
 					<Name><![CDATA[ping]]></Name>
-					<X>50</X><Y>150</Y>
+					<X>150</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7352,7 +7430,7 @@ hold4.unblock();]]></Code>
 				<Variable Class="Parameter">
 					<Id>1668085882442</Id>
 					<Name><![CDATA[serv]]></Name>
-					<X>45</X><Y>100</Y>
+					<X>100</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -7363,6 +7441,30 @@ hold4.unblock();]]></Code>
 						<SdArray>false</SdArray>
 						<ParameterEditor>
 							<Id>1668085882440</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
+				<Variable Class="Parameter">
+					<Id>1669492173464</Id>
+					<Name><![CDATA[origTime]]></Name>
+					<X>50</X><Y>80</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[0]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1669492173462</Id>
 							<EditorContolType>TEXT_BOX</EditorContolType>
 							<MinSliderValue><![CDATA[0]]></MinSliderValue>
 							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
@@ -7421,7 +7523,7 @@ hold4.unblock();]]></Code>
 	<RelativeAccuracy>1.0E-5</RelativeAccuracy>
 	<TimeAccuracy>1.0E-5</TimeAccuracy>
 	<Frame>
-		<Width>1020</Width>
+		<Width>1070</Width>
 		<Height>880</Height>
 	</Frame>
 	<Database>
