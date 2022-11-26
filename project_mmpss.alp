@@ -377,6 +377,30 @@
 						</ParameterEditor>
 					</Properties>                 
 				</Variable>
+				<Variable Class="Parameter">
+					<Id>1669498682764</Id>
+					<Name><![CDATA[ping_deviation]]></Name>
+					<X>500</X><Y>870</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" ModificatorType="STATIC">
+						<Type><![CDATA[double]]></Type>
+						<UnitType><![CDATA[NONE]]></UnitType>
+						<SdArray>false</SdArray>
+						<DefaultValue Class="CodeValue">
+							<Code><![CDATA[30]]></Code>
+						</DefaultValue>
+						<ParameterEditor>
+							<Id>1669498682762</Id>
+							<EditorContolType>TEXT_BOX</EditorContolType>
+							<MinSliderValue><![CDATA[0]]></MinSliderValue>
+							<MaxSliderValue><![CDATA[100]]></MaxSliderValue>
+							<DelimeterType>NO_DELIMETER</DelimeterType>
+						</ParameterEditor>
+					</Properties>                 
+				</Variable>
 			</Variables>
 			<Connectors>
 				<Connector>
@@ -4951,7 +4975,7 @@ hold4.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[((agent.ping < ping_rus + 30) && (agent.ping > ping_rus - 30)) || count_rus == 0]]></Code>
+								<Code><![CDATA[((agent.ping < ping_rus + ping_deviation) && (agent.ping > ping_rus - ping_deviation)) || count_rus == 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5239,7 +5263,7 @@ hold4.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[((agent.ping < ping_ua + 30) && (agent.ping > ping_ua - 30)) || count_ua == 0]]></Code>
+								<Code><![CDATA[((agent.ping < ping_ua + ping_deviation) && (agent.ping > ping_ua - ping_deviation)) || count_ua == 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5531,7 +5555,7 @@ hold4.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[((agent.ping < ping_blr + 30) && (agent.ping > ping_blr - 30)) || count_blr == 0]]></Code>
+								<Code><![CDATA[((agent.ping < ping_blr + ping_deviation) && (agent.ping > ping_blr - ping_deviation)) || count_blr == 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -5819,7 +5843,7 @@ hold4.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[((agent.ping < ping_uz + 30) && (agent.ping > ping_uz - 30)) || count_uz == 0]]></Code>
+								<Code><![CDATA[((agent.ping < ping_uz + ping_deviation) && (agent.ping > ping_uz - ping_deviation)) || count_uz == 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6107,7 +6131,7 @@ hold4.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[condition]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[((agent.ping < ping_kz + 30) && (agent.ping > ping_kz - 30)) || count_kz == 0]]></Code>
+								<Code><![CDATA[((agent.ping < ping_kz + ping_deviation) && (agent.ping > ping_kz - ping_deviation)) || count_kz == 0]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -7617,6 +7641,9 @@ hold4.unblock();]]></Code>
 				</Parameter>
 				<Parameter>
 					<ParameterName><![CDATA[capKZ]]></ParameterName>
+				</Parameter>
+				<Parameter>
+					<ParameterName><![CDATA[ping_deviation]]></ParameterName>
 				</Parameter>
 			</Parameters>			
 			<PresentationProperties>
