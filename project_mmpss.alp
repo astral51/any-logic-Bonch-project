@@ -246,7 +246,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[0.95]]></Code>
+							<Code><![CDATA[0.25]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1668084866620</Id>
@@ -294,7 +294,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[200]]></Code>
+							<Code><![CDATA[300]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1669486931789</Id>
@@ -342,7 +342,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[200]]></Code>
+							<Code><![CDATA[400]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1669486939258</Id>
@@ -390,7 +390,7 @@
 						<UnitType><![CDATA[NONE]]></UnitType>
 						<SdArray>false</SdArray>
 						<DefaultValue Class="CodeValue">
-							<Code><![CDATA[30]]></Code>
+							<Code><![CDATA[100]]></Code>
 						</DefaultValue>
 						<ParameterEditor>
 							<Id>1669498682762</Id>
@@ -2442,7 +2442,7 @@
 						<Parameter>
 							<Name><![CDATA[interarrivalTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[exponential( a )]]></Code>
+								<Code><![CDATA[exponential( 1/a )]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 							</Value>
 						</Parameter>
@@ -2636,7 +2636,7 @@
 							<Value Class="CodeValue">
 								<Code><![CDATA[agent.serv = uniform_discr(1, 5);
 agent.ping = uniform_discr(1, 120);
-agent.origTime = time();]]></Code>
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -2686,7 +2686,7 @@ agent.origTime = time();]]></Code>
 					<Id>1668082686493</Id>
 					<Name><![CDATA[rusPlayersCons]]></Name>
 					<X>460</X><Y>70</Y>
-					<Label><X>-20</X><Y>-10</Y></Label>
+					<Label><X>-25</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -3100,6 +3100,9 @@ agent.origTime = time();]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[agent.origTime = time();]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit1]]></Name>
@@ -4106,7 +4109,7 @@ agent.origTime = time();]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform_discr(140, 220);]]></Code>
+								<Code><![CDATA[uniform_discr(140, 180);]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -4136,7 +4139,7 @@ agent.origTime = time();]]></Code>
 							<Value Class="CodeValue">
 								<Code><![CDATA[count_rus=0;
 hold.unblock();
-data.add((time() - agent.origTime) / 60 / 60);]]></Code>
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4214,7 +4217,7 @@ data.add((time() - agent.origTime) / 60 / 60);]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform_discr(200, 400);]]></Code>
+								<Code><![CDATA[uniform_discr(100, 160);]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -4243,7 +4246,8 @@ data.add((time() - agent.origTime) / 60 / 60);]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[count_ua=0;
-hold1.unblock();]]></Code>
+hold1.unblock();
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4350,7 +4354,8 @@ hold1.unblock();]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[count_blr=0;
-hold2.unblock();]]></Code>
+hold2.unblock();
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4428,7 +4433,7 @@ hold2.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[delayTime]]></Name>
 							<Value Class="CodeUnitValue">
-								<Code><![CDATA[uniform_discr(200, 450);]]></Code>
+								<Code><![CDATA[uniform_discr(120, 300);]]></Code>
 								<Unit Class="TimeUnits"><![CDATA[MINUTE]]></Unit>
 							</Value>
 						</Parameter>
@@ -4457,7 +4462,8 @@ hold2.unblock();]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[count_uz=0;
-hold3.unblock();]]></Code>
+hold3.unblock();
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -4564,7 +4570,8 @@ hold3.unblock();]]></Code>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[count_kz=0;
-hold4.unblock();]]></Code>
+hold4.unblock();
+]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -6430,6 +6437,12 @@ hold4.unblock();]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[for (int i = 0; i < 10; i++) {
+	data.add((time() - agent.origTime) / 60 / 10);		
+}
+]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
@@ -6604,6 +6617,11 @@ hold4.unblock();]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[for (int i = 0; i < 10; i++) {
+	data.add((time() - agent.origTime) / 60 / 10);		
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
@@ -6778,6 +6796,11 @@ hold4.unblock();]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[for (int i = 0; i < 10; i++) {
+	data.add((time() - agent.origTime) / 60 / 10);		
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
@@ -6952,6 +6975,11 @@ hold4.unblock();]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[for (int i = 0; i < 10; i++) {
+	data.add((time() - agent.origTime) / 60 / 10);		
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
@@ -7126,6 +7154,11 @@ hold4.unblock();]]></Code>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[for (int i = 0; i < 10; i++) {
+	data.add((time() - agent.origTime) / 60 / 10);		
+}]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExitTrue]]></Name>
